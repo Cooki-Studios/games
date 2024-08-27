@@ -37,4 +37,21 @@ function timeChange() {
 
 setInterval(timeChange, 1000 - new Date().getMilliseconds());
 
-document.getElementById("message").innerText;
+let rand = Math.floor(Math.random() * 100);
+switch(true) {
+    case (rand < 25):
+        document.getElementById("message").innerText = "An UPDATE is COMING SOON."
+        break;
+    case (rand < 50):
+        document.getElementById("message").innerText = "An UPDATE is IN THE WORKS."
+        break;
+    case (rand < 75):
+        document.getElementById("message").innerText = "NEW UPDATE SOON."
+        break;
+    case (rand < 100):
+        document.getElementById("message").innerText = "Guess when that timer is counting to..."
+        break;
+    case (rand === 100):
+        document.getElementById("message").innerText = "This is a 1% chance!"
+        break;
+}

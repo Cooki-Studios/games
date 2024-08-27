@@ -3,6 +3,7 @@
   <title>Games</title>
   <link rel="shortcut icon" href="img/logo.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cookistudios.com/cooki.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,12 +22,21 @@
 
 </head>
 <body>
-  <div class="parent">
-    <img id="logo" src="img/logo.png" alt="The Cooki Studios Games Logo">
-    <h1 id="message" class="montserrat">An UPDATE is COMING SOON.</h1>
-    <h1 id="time" class="montserrat">-- : -- : -- : --</h1>
-    <img id="cooki-logo" src="https://cookistudios.com/img/CookiWeb.png" alt="Cooki Studios Logo">
-    <a id="back" href="https://cookistudios.com" class="montserrat">Go Back</a>
+  <dialog open id="loading">
+    <h1 id="loading-message" class="inter-700">Loading<span class='hidden'>.</span><span class='hidden'>.</span><span class='hidden'>.</span></h1>
+    <noscript id="js-warn" class="inter-400">Please enable javascript to continue</noscript>
+  </dialog>
+  <script src="https://cookistudios.com/load.js"></script>
+  <script src="https://cookistudios.com/navbar.js"></script>
+  <div class="games-grid">
+    <div class="games-grid-child inter-400">
+      Minigames
+    </div>
+    <div class="games-grid-child inter-400">
+      Game 1
+    </div>
+    <div class="games-grid-child inter-400">
+      Game 2
+    </div>
   </div>
-  <script src="index.js"></script>
 </body>
