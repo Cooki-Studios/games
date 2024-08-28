@@ -1,8 +1,21 @@
+:root {
+    color-scheme: light dark;
+}
+
+.light {
+    /* forces light color-scheme */
+    color-scheme: light;
+}
+.dark {
+    /* forces dark color-scheme */
+    color-scheme: dark;
+}
+
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #151515;
-    color: whitesmoke;
+    background-color: light-dark(#151515, whitesmoke);
+    color: light-dark(whitesmoke, #151515);
     width: 100%;
     height: 100%;
 }
@@ -13,6 +26,7 @@ html, body {
 }
 
 .games-grid {
+    padding-top: 4rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -30,15 +44,39 @@ html, body {
 .games-grid-child {
     text-decoration: none;
     font-size: 32px;
-    background-color: #30303050;
     color: whitesmoke;
     border-radius: 32px;
     transition: 200ms;
     display: grid;
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
+    min-width: 320px;
+    min-height: 200px;
     align-items: center;
     justify-items: center;
     justify-content: center;
     align-content: center;
+    cursor: pointer;
+    background: none;
+    position: relative;
+    z-index: 2;
+}
+
+.games-grid-child::before {
+    content: " ";
+    position: absolute;
+    aspect-ratio: 16 / 9;
+    min-width: 320px;
+    min-height: 200px;
+    opacity: 0.5;
+    z-index: -1;
+    background: url("https://cookistudios.com/img/placeholder.png") no-repeat;
+    background-size: cover;
+}
+
+.games-grid-child:hover, .games-grid-child:hover h1, .games-grid-child:hover h2 {
+    color: light-dark(darkgrey, white);
+}
+
+.games-grid-child:hover::before {
+    opacity: 0.25;
 }
