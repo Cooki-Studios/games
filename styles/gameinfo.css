@@ -1,0 +1,98 @@
+div#container {
+    /*position: fixed;*/
+    aspect-ratio: 1920/620;
+    width: 100%;
+}
+
+div#bg {
+    position: fixed;
+    background-image: url("../img/placeholderparablewide.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    aspect-ratio: 1920/620;
+    width: 100%;
+    z-index: 0;
+}
+
+div#fade {
+    position: absolute;
+    top: 0;
+    background: linear-gradient(rgba(20, 20, 20, 0), rgba(20, 20, 20, 255));
+    width: 100%;
+    aspect-ratio: 1920/620;
+}
+
+img#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    z-index: 1;
+    position: relative;
+}
+
+section#main-content {
+    width: 100%;
+    background-color: #151515;
+    position: relative;
+    z-index: 3;
+}
+
+p#description {
+    font-size: 1.25em;
+    text-align: left;
+    width: 60%;
+}
+
+div#buttons {
+    width: 40%;
+
+    display: flex;
+    gap: 1em;
+
+    position: relative;
+    right: 10%;
+}
+
+div#buttons button, div#buttons img {
+    flex: 1 1 0;
+}
+
+button#play {
+    flex: 1 1 0;
+    font-size: 1.5em;
+    font-weight: 800;
+    background-color: #ffa500;
+    border: none;
+    border-radius: 0.15em;
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+button#play:not([disabled]):hover {
+    opacity: 0.85;
+}
+
+img[disabled] {
+    opacity: 0.5;
+}
+
+.steam-currency {
+    font-size: 0.75em;
+}
+
+.steam-price {
+    font-size: 1.25em;
+}
+
+.store-image {
+    transition: all 200ms;
+}
+
+.store-image:not([disabled]) {
+    cursor: pointer;
+}
+
+.store-image:not([disabled]):hover {
+    opacity: 0.85;
+}

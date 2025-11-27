@@ -1,0 +1,29 @@
+:root {
+    color-scheme: light dark;
+}
+
+.light {
+    /* forces light color-scheme */
+    color-scheme: light;
+}
+.dark {
+    /* forces dark color-scheme */
+    color-scheme: dark;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: light-dark(whitesmoke, #151515);
+    color: light-dark(#151515, whitesmoke);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.player {
+    width: 32px;
+    height: 32px;
+    background-color: lightgray;
+    position: absolute;
+}

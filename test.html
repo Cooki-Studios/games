@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Maze Generator</title>
+	<style>
+        canvas {
+            border: 1px solid black;
+        }
+	</style>
+</head>
+<body>
+<canvas id="maze" width="400" height="400"></canvas>
+<script>
+    const canvas = document.getElementById('maze');
+    const ctx = canvas.getContext('2d');
+    const cols = 20;
+    const rows = 20;
+    const cellSize = canvas.width / cols;
+
+    // Directions for moving in the maze (up, down, left, right)
+    const directions = [
+        { x: 0, y: -1 },  // Up
+        { x: 0, y: 1 },   // Down
+        { x: -1, y: 0 },  // Left
+        { x: 1, y: 0 }    // Right
+    ];
+
+    // Maze grid
+    const maze = Array.from({ length: rows }, () => Array(cols).fill(false));
+
+    // Function to check if a cell is within bounds and unvisited
+    function isValid(x, y) {
+        return x >= 0 && x < cols && y >= 0 && y < rows && !maze[y][x];
+    }
+
+    // Recursive backtracking maze generation
+    function generateMaze(x, y) {
+        maze[y][x] = true; // Mark the cell as visited
+
+        // Shuffle directions to create randomness
+        const shuffledDirs = directions.sort(() => Math.random() - 0.5);
+
+        for (const dir of shuffledDirs) {
+            const nx = x + dir.x;
+            const ny = y + dir.y;
+
+            // Check if the next cell is valid and has not been visited
+            if (isValid(nx, ny)) {
+                // Remove the wall between the current cell and the next cell
+                ctx.beginPath();
+                ctx.moveTo(x * cellSize + cellSize / 2, y * cellSize + cellSize / 2);
+                ctx.lineTo(nx * cellSize + cellSize / 2, ny * cellSize + cellSize / 2);
+                ctx.stroke();
+
+                generateMaze(nx, ny); // Recursively generate the maze
+            }
+        }
+    }
+
+    // Initialize the maze generation
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    generateMaze(Math.floor(Math.random() * cols), Math.floor(Math.random() * rows));
+</script>
+</body>
+</html>
